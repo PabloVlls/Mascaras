@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3da91f5d7dffcac4ca0289bec352bad1, type: 3}
+  m_Name: Mask_Demon_1
+  m_EditorClassIdentifier: 
+  race: 1
+  normalSprite: {fileID: 21300000, guid: d71e75ed4d4baec4ca500db58d8ac796, type: 3}
+  uvSprite: {fileID: 21300000, guid: 3537d86bb8f582444af52b805e4c1648, type: 3}
+  eyeType: 1
+  tremorIdle: 1
+  tremorInspect: 2
+  materialVisual: 2
+  detectorResult: 2
+  attachmentType: 3
+  designPattern: 1
+  clickSound: 1
+  clickReaction: 1
+  hammerReaction: 2
+  uvSymbol: 2
+  clanAnswer: Sizas soy del clan de los leones
+  smellAnswer: tussi y 4loko
+  drinkAnswer: 4lokooo
