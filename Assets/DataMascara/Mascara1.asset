@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Mascara1
   m_EditorClassIdentifier: 
   nombreMascara: 
-  spriteMascara: {fileID: 0}
+  spriteMascara: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   esHumana: 0
   materialOutput: 
   descripcion: 

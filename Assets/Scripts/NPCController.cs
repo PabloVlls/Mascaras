@@ -22,7 +22,7 @@ public class NPCController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+   /* void Update()
     {
         if(datos == null) return;
 
@@ -35,7 +35,7 @@ public class NPCController : MonoBehaviour
         {
              transform.localPosition = posicionOriginal + (Vector3)Random.insideUnitCircle * intensidad; 
         }
-    }
+    }*/
 
     //Estos métodos los llamarías desde tu sistema de herramientas (Lupa)
     public void ActivarLupa() => usandoLupa = true;

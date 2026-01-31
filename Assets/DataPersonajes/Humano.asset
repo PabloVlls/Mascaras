@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Humano
   m_EditorClassIdentifier: 
   nombreRaza: Humano
-  rasgosOcularesPosibles: []
-  mascarasPosibles: []
-  vibracionBase: 0
-  esRigido: 0
-  reaccionesPosibles: []
+  rasgosOcularesPosibles:
+  - {fileID: 11400000, guid: 7842f9e3ddfae1046bd7be0776afa88b, type: 2}
+  mascarasPosibles:
+  - {fileID: 11400000, guid: c9b7be92e9f589d49b4f96c536869eb1, type: 2}

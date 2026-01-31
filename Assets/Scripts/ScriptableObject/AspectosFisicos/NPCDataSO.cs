@@ -15,8 +15,8 @@ public class NPCDataSO : ScriptableObject
     public string nombreEnDocumento;
     public string razaEnDocumento; //Aquí el humano pondrá Demonio para engañar
 
-    [Header("Instancia de Comportamiento")]
-    public ReactionSO reaccionAsignada; // La reacción que eligió el generador para este NPC
+    /*[Header("Instancia de Comportamiento")]
+    public ReactionSO reaccionAsignada; // La reacción que eligió el generador para este NPC*/
 
     [Header("Máscara")]
     public MaskSO mascaraEquipada;

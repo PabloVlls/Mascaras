@@ -11,6 +11,11 @@ public class NPCGenerator : MonoBehaviour
     public RaceDataSO razaDemonio; 
     public NPCController npcVisual; //Referencia al obejto de la escena 
 
+    void Start()
+    {
+        GenerarNuevoCliente();
+    }
+
     public void GenerarNuevoCliente()
     {
         //Decidir identidad real (50% de probabilidad de infiltrado)
@@ -22,10 +27,10 @@ public class NPCGenerator : MonoBehaviour
         nuevoNPC.razaReal = razaReal;
         nuevoNPC.esHumano = seraHumano;
 
-        //Asignar rasgos basados en la rasa real
+        //Asignar rasgos basados en la raza real
         nuevoNPC.rasgoOcularAsignado = razaReal.rasgosOcularesPosibles[Random.Range(0, razaReal.rasgosOcularesPosibles.Count)];
         nuevoNPC.mascaraEquipada = razaReal.mascarasPosibles[Random.Range(0, razaReal.mascarasPosibles.Count)];
-        nuevoNPC.reaccionAsignada = razaReal.reaccionesPosibles[Random.Range(0, razaReal.reaccionesPosibles.Count)];
+        //nuevoNPC.reaccionAsignada = razaReal.reaccionesPosibles[Random.Range(0, razaReal.reaccionesPosibles.Count)];
 
         //Configurar la mentira (Documentación)
         nuevoNPC.nombreEnDocumento = "Sujeto" + Random.Range(100,999);

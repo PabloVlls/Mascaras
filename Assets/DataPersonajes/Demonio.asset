@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: Demonio
   m_EditorClassIdentifier: 
   nombreRaza: Demonio 1
-  rasgosOcularesPosibles: []
-  mascarasPosibles: []
-  vibracionBase: 0
-  esRigido: 0
-  reaccionesPosibles: []
+  rasgosOcularesPosibles:
+  - {fileID: 11400000, guid: 9f6882da90850804faaf836061a2495e, type: 2}
+  mascarasPosibles:
+  - {fileID: 11400000, guid: c9b7be92e9f589d49b4f96c536869eb1, type: 2}

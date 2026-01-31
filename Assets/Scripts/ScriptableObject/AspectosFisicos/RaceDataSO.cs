@@ -10,8 +10,8 @@ public class RaceDataSO : ScriptableObject
 
     public List<MaskSO> mascarasPosibles;
 
-    [Header("Comportamiento Base")]
+    /*[Header("Comportamiento Base")]
     public float vibracionBase; 
     public bool esRigido; // Para el tipo Estático total
-    public List<ReactionSO> reaccionesPosibles; // Lista de reacciones que esta raza puede tener
+    public List<ReactionSO> reaccionesPosibles; // Lista de reacciones que esta raza puede tener*/
 }
