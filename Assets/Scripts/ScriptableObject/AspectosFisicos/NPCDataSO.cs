@@ -8,6 +8,8 @@ public class NPCDataSO : ScriptableObject
     [Header("Verdad Biológica")]
     public RaceDataSO razaReal;
     public EyeTraitSO rasgoOcularAsignado;
+
+    public bool esHumano;
     
     [Header("Identidad Presentada")]
     public string nombreEnDocumento;
