@@ -36,6 +36,7 @@ public class MagnifyingGlass : MonoBehaviour
         {
             // Solo mantenemos la lógica de movimiento
             MoveMagnifyingGlass();
+            HandleZoom();
 
             // (Opcional) Puedes dejar el clic derecho aquí como seguridad, 
             // pero el Manager ya lo hace. Mejor bórralo también.
