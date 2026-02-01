@@ -7,11 +7,11 @@ public class HammerTool : MonoBehaviour
     public AudioSource audioSource; // El componente de audio (puede estar en el martillo)
 
     [Header("Sonidos por Defecto")]
-    public AudioClip defaultHitSound; // Sonido genérico si el objeto no tiene uno específico
+    public AudioClip defaultHitSound; // Sonido genï¿½rico si el objeto no tiene uno especï¿½fico
 
     [Header("Ajustes")]
     public Vector3 offsetUI = new Vector3(20, -20, 0); // Ajustar para que el cursor quede en el mango
-    public float golpeRotation = -45f; // Cuántos grados gira al golpear
+    public float golpeRotation = -45f; // Cuï¿½ntos grados gira al golpear
     public float velocidadGolpe = 15f;
 
     private bool isActive = false;
@@ -51,25 +51,30 @@ public class HammerTool : MonoBehaviour
 
     void DetectarImpacto()
     {
-        // Lanzamos un Rayo 2D justo donde está el mouse
+        // Lanzamos un Rayo 2D justo donde estï¿½ el mouse
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
 
         if (hit.collider != null)
         {
-            // ¿El objeto golpeado tiene el script "Hammerable"?
+            // ï¿½El objeto golpeado tiene el script "Hammerable"?
             Hammerable superficie = hit.collider.GetComponent<Hammerable>();
 
             if (superficie != null)
-            {
-                // 1. Reproducir sonido del material
-                if (superficie.sonidoGolpe != null)
-                    audioSource.PlayOneShot(superficie.sonidoGolpe);
-                else if (defaultHitSound != null)
-                    audioSource.PlayOneShot(defaultHitSound);
+            {   
+                //Variables para recibir la info del NPC
+                AudioClip clipNPC;
+                string reaccion;
 
-                // 2. Avisar al objeto
-                superficie.RecibirGolpe();
+                //Llamamos al objeto golpeado y Ã©l nos devuelve sus datos
+                superficie.RecibirGolpe(out clipNPC, out reaccion);
+
+                //1 Sonido:Prioriza el del NPC, sino el default
+                AudioClip sonidoFinal = (clipNPC != null) ? clipNPC : defaultHitSound;
+                if(sonidoFinal != null) audioSource.PlayOneShot(sonidoFinal);
+
+                //2. Feedback visual extra basado en la reacciÃ³n del GDD
+                if(reaccion == "Desplazamiento") {/*Efecto de mover mÃ¡scara*/}
             }
             else
             {
@@ -79,7 +84,7 @@ public class HammerTool : MonoBehaviour
         }
     }
 
-    // Animación simple: Rota hacia abajo y vuelve a subir
+    // Animaciï¿½n simple: Rota hacia abajo y vuelve a subir
     System.Collections.IEnumerator AnimacionGolpe()
     {
         golpeando = true;
@@ -93,11 +98,11 @@ public class HammerTool : MonoBehaviour
             yield return null;
         }
 
-        // Fase 2: Subir (Recuperación)
+        // Fase 2: Subir (Recuperaciï¿½n)
         t = 0;
         while (t < 1)
         {
-            t += Time.deltaTime * (velocidadGolpe / 2); // Sube un poco más lento
+            t += Time.deltaTime * (velocidadGolpe / 2); // Sube un poco mï¿½s lento
             hammerUI.rotation = Quaternion.Lerp(Quaternion.Euler(0, 0, golpeRotation), rotacionOriginal, t);
             yield return null;
         }

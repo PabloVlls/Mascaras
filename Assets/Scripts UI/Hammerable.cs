@@ -2,20 +2,39 @@ using UnityEngine;
 
 public class Hammerable : MonoBehaviour
 {
-    public enum MaterialType { Carne, MascaraDura, Metal, Vidrio }
+    //public enum MaterialType { Carne, MascaraDura, Metal, Vidrio }
+    private NPCController npcController;
 
-    [Header("Propiedades del Material")]
+    /*[Header("Propiedades del Material")]
     public MaterialType tipoMaterial;
-    public AudioClip sonidoGolpe; // Arrastra aquí el sonido específico (ej. "TocToc.wav")
+    public AudioClip sonidoGolpe; // Arrastra aquï¿½ el sonido especï¿½fico (ej. "TocToc.wav")
 
-    // Un pequeño efecto visual al golpear (Opcional: Partículas)
+    // Un pequeï¿½o efecto visual al golpear (Opcional: Partï¿½culas)
     public ParticleSystem particulasGolpe;
 
-    public void RecibirGolpe()
-    {
-        // Aquí podrías añadir lógica extra, como que la máscara se rompa visualmente
-        Debug.Log("¡Golpeaste " + tipoMaterial + "!");
+    */
 
-        if (particulasGolpe != null) particulasGolpe.Play();
+    void Start()
+    {
+        //Buscamos el controlador
+        npcController = GetComponentInParent<NPCController>();
+    }
+
+    public void RecibirGolpe(out AudioClip sonidoAReproducir, out string tipoReaccion)
+    {
+        //Por defecto si algo sale mal
+        sonidoAReproducir = null;
+        tipoReaccion = "None";
+
+        if (npcController != null && npcController.characterData != null)
+        {
+            sonidoAReproducir = npcController.GetHitSound();
+            tipoReaccion = npcController.characterData.ToString();
+
+            Debug.Log($"Impacto en {npcController.characterData.race}. ReacciÃ³n: {tipoReaccion}");
+
+            //Ejecutar animaciÃ³n de reacciÃ³n del NPC
+            npcController.PlayHammerAnimation();
+        }
     }
 }

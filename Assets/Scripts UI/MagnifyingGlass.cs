@@ -9,9 +9,9 @@ public class MagnifyingGlass : MonoBehaviour
     public Camera mainUI_Camera;
 
     // --- NUEVA VARIABLE ---
-    public GameObject backgroundPanel; // Aquí meteremos el [FONDO_NEGRO_LUPA]
+    public GameObject backgroundPanel; // Aquï¿½ meteremos el [FONDO_NEGRO_LUPA]
 
-    [Header("Configuración de Zoom")]
+    [Header("Configuraciï¿½n de Zoom")]
     public float currentZoom = 2f;
     public float minZoom = 0.5f;
     public float maxZoom = 3f;
@@ -25,21 +25,21 @@ public class MagnifyingGlass : MonoBehaviour
     void Start()
     {
         lensCamera.orthographicSize = currentZoom;
-        ToggleTool(false); // Esto apagará todo al inicio
+        ToggleTool(false); // Esto apagarï¿½ todo al inicio
     }
 
     void Update()
     {
-        // YA NO HAY INPUTS AQUÍ. El Manager se encarga.
+        // YA NO HAY INPUTS AQUï¿½. El Manager se encarga.
 
         if (isActive)
         {
-            // Solo mantenemos la lógica de movimiento
+            // Solo mantenemos la lï¿½gica de movimiento
             MoveMagnifyingGlass();
             HandleZoom();
-
-            // (Opcional) Puedes dejar el clic derecho aquí como seguridad, 
-            // pero el Manager ya lo hace. Mejor bórralo también.
+            // (Opcional) Puedes dejar el clic derecho aquï¿½ como seguridad, 
+            // pero el Manager ya lo hace. Mejor bï¿½rralo tambiï¿½n.
+            CheckMaterialUnderLupa(); // FunciÃ³n para ver los defectos.
         }
     }
 
@@ -64,7 +64,22 @@ public class MagnifyingGlass : MonoBehaviour
         }
     }
 
-    // --- AQUÍ ESTÁ LA MAGIA ---
+    void CheckMaterialUnderLupa()
+    {
+        //Lanzamos un Raycast desde la posiciÃ³n de la lupa
+        RaycastHit2D hit = Physics2D.Raycast(lensCamera.transform.position, Vector2.zero);
+
+        if(hit.collider != null)
+        {
+            NPCController npc = hit.collider.GetComponent<NPCController>();
+            if(npc != null)
+            {
+                string materialInfo = npc.characterData.materialVisual.ToString();
+            }    
+        }
+    }
+
+    // --- AQUï¿½ ESTï¿½ LA MAGIA ---
     public void ToggleTool(bool status)
     {
         isActive = status;

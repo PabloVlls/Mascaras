@@ -16,7 +16,7 @@ public class ToolsManager : MonoBehaviour
     {
         // Tecla 1: LUPA
         if (Input.GetKeyDown(KeyCode.Alpha1)) ToggleSpecificTool(1);
-
+        
         // Tecla 2: UV
         if (Input.GetKeyDown(KeyCode.Alpha2)) ToggleSpecificTool(2);
 
@@ -77,7 +77,7 @@ public class ToolsManager : MonoBehaviour
 
         currentToolID = 0;
 
-        // Aseguramos que el cursor vuelva si todo está apagado
+        // Aseguramos que el cursor vuelva si todo estï¿½ apagado
         Cursor.visible = true;
     }
 }

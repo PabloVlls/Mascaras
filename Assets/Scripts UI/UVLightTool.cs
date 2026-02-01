@@ -5,10 +5,10 @@ public class RealisticUVTool : MonoBehaviour
 {
     [Header("Referencias UI")]
     public RectTransform mobileMaskUI; // Tu objeto [Mascara] (el que se mueve)
-    public RectTransform innerImage;   // NUEVO: Arrastra aquí tu [RawImage]
+    public RectTransform innerImage;   // NUEVO: Arrastra aquï¿½ tu [RawImage]
     public GameObject darkBackgroundPanel;
 
-    [Header("Referencias Cámaras")]
+    [Header("Referencias Cï¿½maras")]
     public Camera uvCamera;
     public Camera mainCamera;
 
@@ -27,27 +27,38 @@ public class RealisticUVTool : MonoBehaviour
 
     void Update()
     {
-        // YA NO HAY INPUTS AQUÍ. El Manager se encarga.
+        // YA NO HAY INPUTS AQUï¿½. El Manager se encarga.
 
         if (isActive)
         {
-            // Solo mantenemos la lógica de movimiento
+            // Solo mantenemos la lï¿½gica de movimiento
             MoveTheFlashlight(); // o MoveMagnifyingGlass();
 
-            // (Opcional) Puedes dejar el clic derecho aquí como seguridad, 
-            // pero el Manager ya lo hace. Mejor bórralo también.
+            // (Opcional) Puedes dejar el clic derecho aquï¿½ como seguridad, 
+            // pero el Manager ya lo hace. Mejor bï¿½rralo tambiï¿½n.
         }
     }
 
     void MoveTheFlashlight()
     {
-        // 1. Mover la MÁSCARA con el mouse
+        Vector3 mousePos = Input.mousePosition;
+
+        // 1. Mover la Mï¿½SCARA con el mouse
         if (mobileMaskUI != null)
         {
             mobileMaskUI.position = Input.mousePosition + offsetUI;
         }
 
-        // 2. MANTENER LA IMAGEN QUIETA (El truco realista)
+        // 2. LA cÃ¡mara UV debe seguir al mouse en el mundo para que vea lo que hay debajo del filtro
+        if(uvCamera != null)
+        {
+            Vector3 worldPos = mainCamera.ScreenToWorldPoint(mousePos);
+            worldPos.z = uvCamera.transform.position.z;
+            uvCamera.transform.position = worldPos;
+        }
+
+
+        // 3. MANTENER LA IMAGEN QUIETA (El truco realista)
         // Forzamos a la imagen interna a quedarse en el centro de la pantalla
         if (innerImage != null)
         {

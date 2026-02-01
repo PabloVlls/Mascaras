@@ -8,11 +8,20 @@ public class NPCController : MonoBehaviour
     public MaskedCharacterData characterData;
 
     [Header("References")]
-    public SpriteRenderer spriteRenderer;
+    public SpriteRenderer mainRenderer; // Capa Dafault
+    public SpriteRenderer detailRenderer; // Capa Detalles Lupa
+    public SpriteRenderer uvRenderer; // Capa Fitro UV
+
+    [Header("Audios")]
+    public AudioClip sonidoMadera;
+    public AudioClip sonidoMetal;
+    public AudioClip sonidoSquish;
+
 
     void Start()
     {
         ShowNormal();
+        if (characterData != null) SetupNPC();
     }
 
     void Update()
@@ -31,15 +40,44 @@ public class NPCController : MonoBehaviour
     }
 
 
+    public void SetupNPC()
+    {
+        //Imagen base
+        mainRenderer.sprite = characterData.normalSprite;
+
+        //Imagen de detalles
+        detailRenderer.gameObject.layer = LayerMask.NameToLayer("Detalles_lupa");
+
+        //Configuración para el filtro UV
+        uvRenderer.sprite = characterData.uvSprite;
+        uvRenderer.gameObject.layer = LayerMask.NameToLayer("Detalles_UV");
+
+        
+    }
+
     // ===== VISUALS =====
     public void ShowNormal()
     {
-        spriteRenderer.sprite = characterData.normalSprite;
+        mainRenderer.sprite = characterData.normalSprite;
     }
 
-    public void ShowUV()
+    public AudioClip GetHitSound()
     {
-        spriteRenderer.sprite = characterData.uvSprite;
+        switch(characterData.clickSound)
+        {
+            case ClickSoundType.Hollow : return sonidoMadera;
+            case ClickSoundType.Solid : return sonidoMetal;
+            case ClickSoundType.Wet :return sonidoSquish;
+            default: return null;
+        }
+    }
+
+    public void PlayHammerAnimation()
+    {
+        if(characterData.race == CharacterRace.Human)
+            GetComponent<Animator>().SetTrigger("NervousHit");
+        else
+            GetComponent<Animator>().SetTrigger("SteadyHit");
     }
 
     // ===== DIALOGUE =====
