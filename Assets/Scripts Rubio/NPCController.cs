@@ -11,6 +11,7 @@ public class NPCController : MonoBehaviour
     public SpriteRenderer mainRenderer; // Capa Dafault
     public SpriteRenderer detailRenderer; // Capa Detalles Lupa
     public SpriteRenderer uvRenderer; // Capa Fitro UV
+    public SpriteRenderer spriteRenderer;
 
     [Header("Audios")]
     public AudioClip sonidoMadera;
@@ -55,11 +56,20 @@ public class NPCController : MonoBehaviour
         
     }
 
+
+
+
+    public void ShowUV()
+    {
+        spriteRenderer.sprite = characterData.uvSprite;
+    }
+
     // ===== VISUALS =====
     public void ShowNormal()
     {
         mainRenderer.sprite = characterData.normalSprite;
     }
+    
 
     public AudioClip GetHitSound()
     {

@@ -8,6 +8,9 @@ public class RealisticUVTool : MonoBehaviour
     public RectTransform innerImage;   // NUEVO: Arrastra aqu� tu [RawImage]
     public GameObject darkBackgroundPanel;
 
+    [Header("Referencias NPC")]
+    public NPCController npcController;
+
     [Header("Referencias C�maras")]
     public Camera uvCamera;
     public Camera mainCamera;
@@ -20,7 +23,7 @@ public class RealisticUVTool : MonoBehaviour
     void Start()
     {
         if (mainCamera != null && uvCamera != null)
-            uvCamera.orthographicSize = mainCamera.orthographicSize;
+            uvCamera.orthographicSize = 3;
 
         ToggleTool(false);
     }
@@ -74,7 +77,16 @@ public class RealisticUVTool : MonoBehaviour
         if (uvCamera != null) uvCamera.gameObject.SetActive(status);
         if (darkBackgroundPanel != null) darkBackgroundPanel.SetActive(status);
 
+        if (npcController != null)
+        {
+            if (status)
+                npcController.ShowUV();
+            else
+                npcController.ShowNormal();
+        }
+
         Cursor.visible = !status;
+
     }
 
     public void SwitchState()

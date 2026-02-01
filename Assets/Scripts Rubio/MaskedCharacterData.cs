@@ -14,6 +14,7 @@ public class MaskedCharacterData : ScriptableObject
     [Header("Visuals")]
     public Sprite normalSprite;
     public Sprite uvSprite;
+    public Sprite materialSprite;
 
     [Header("Physical Traits")]
     public EyeType eyeType;
