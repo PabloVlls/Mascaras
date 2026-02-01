@@ -5,7 +5,9 @@ public class FlashlightTool : MonoBehaviour
 {
     [Header("UI Referencias")]
     public RectTransform flashlightUI; // La imagen de la luz (círculo blanco/amarillo)
-    
+
+    [Header("Referencias NPC")]
+    public NPCController npcController;
 
     [Header("Ajustes")]
     public Vector3 offsetUI = Vector3.zero;
@@ -46,6 +48,15 @@ public class FlashlightTool : MonoBehaviour
         if (flashlightUI != null) flashlightUI.gameObject.SetActive(status);
         
 
+
         Cursor.visible = !status;
+
+        if (npcController != null)
+        {
+            if (status)
+                npcController.ShowFlashlight();
+            else
+                npcController.HideFlashlight();
+        }
     }
 }

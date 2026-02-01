@@ -11,6 +11,9 @@ public class MaskedCharacterData : ScriptableObject
     [Header("Difficulty")]
     public MaskDifficultyLevel difficultyLevel;
 
+    [Header("Flashlight")]
+    public Sprite flashlightSprite;
+
     [Header("Visuals")]
     public Sprite normalSprite;
     public Sprite uvSprite;
