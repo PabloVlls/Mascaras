@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nightNumber: 2
   entriesGoal: 4
-  maxStrikes: 2
+  maxStrikes: 1
   nightDuration: 180
   difficultyWeights:
   - difficulty: 0

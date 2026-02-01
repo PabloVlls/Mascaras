@@ -15,7 +15,7 @@ MonoBehaviour:
   race: 0
   difficultyLevel: 0
   normalSprite: {fileID: 21300000, guid: dc2f0f2ee73cd5d428ad2779b523f831, type: 3}
-  uvSprite: {fileID: 0}
+  uvSprite: {fileID: 21300000, guid: 673bec2fa590e024b8a4baffd835c61c, type: 3}
   materialSprite: {fileID: 0}
   eyeType: 4
   tremorIdle: 1

@@ -9,18 +9,29 @@ public class GameFlowManager : MonoBehaviour
     public ClockManager clockManager;
     public NightManager nightManager;
 
+    public GameObject nightIntroPanel;
+
+
     void Start()
     {
         SetState(GameState.Menu);
     }
 
-    void Update()
+    /*void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1)) GoToMenu();
         if (Input.GetKeyDown(KeyCode.Alpha2)) StartGame();
         if (Input.GetKeyDown(KeyCode.Alpha3)) StartNight();
         if (Input.GetKeyDown(KeyCode.Alpha4)) EndNightWin();
         if (Input.GetKeyDown(KeyCode.Alpha5)) EndNightLose();
+    }*/
+
+    void EndGame(bool win)
+    {
+        if (win)
+            SceneFlowManager.Instance.LoadWinDemo();
+        else
+            SceneFlowManager.Instance.LoadGameOver();
     }
 
     public void SetState(GameState newState)
@@ -35,7 +46,11 @@ public class GameFlowManager : MonoBehaviour
         else if (currentState == GameState.NightIntro)
         {
             Debug.Log("?? Pantalla INICIO DE NOCHE");
-        }
+            
+                nightIntroPanel.SetActive(true);
+                
+
+            }
         else if (currentState == GameState.Playing)
         {
             
@@ -79,16 +94,25 @@ public class GameFlowManager : MonoBehaviour
     public void StartNight()
     {
         SetState(GameState.Playing);
+       
     }
 
-    public void EndNightWin()
+    public void NextNight()
+    {
+        SetState(GameState.NightIntro);
+    }
+
+
+    /*public void EndNightWin()
     {
         SetState(GameState.NightResult);
+  
     }
 
     public void EndNightLose()
     {
         SetState(GameState.GameOver);
-    }
+     
+    }*/
 }
 

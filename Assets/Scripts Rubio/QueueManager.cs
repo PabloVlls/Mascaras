@@ -21,11 +21,14 @@ public class QueueManager : MonoBehaviour
     public void NextNPC()
     {
         MaskedCharacterData next = GetRandomCharacter();
+
         npcController.characterData = next;
+        npcController.SetupNPC();   // ?? CLAVE
         npcController.ShowNormal();
 
-        Debug.Log("?? Nuevo NPC en la entrada");
+        Debug.Log("?? Nuevo NPC cargado: " + next.name);
     }
+
 
     MaskedCharacterData GetRandomCharacter()
     {

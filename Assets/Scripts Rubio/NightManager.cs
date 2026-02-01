@@ -14,6 +14,16 @@ public class NightManager : MonoBehaviour
 
     public GameFlowManager gameFlow;
 
+    public EndNightPanel endNightPanel;
+
+    public ClockManager clockManager;
+
+
+    // Snapshot de la noche terminada
+    public int lastNightEntries;
+    public int lastNightStrikes;
+    public int lastNightMaxStrikes;
+
 
     [Header("State")]
     public int currentEntries = 0;
@@ -105,33 +115,40 @@ public class NightManager : MonoBehaviour
 
     void EndNight(bool success)
     {
+        Debug.Log("?? END NIGHT");
+        Debug.Log("?? Antes de incrementar | currentNightIndex = " + currentNightIndex);
+
         nightActive = false;
+        clockManager.StopClock();
 
-        if (success)
+        if (!success)
         {
-            Debug.Log($"?? Noche {CurrentNight.nightNumber} completada");
-
-            //gameFlow.SetState(GameState.NightResult);
-
-
-            currentNightIndex++;
-
-            if (currentNightIndex >= nights.Count)
-            {
-                Debug.Log("?? JUEGO COMPLETADO");
-                return;
-            }
-
-            StartNight();
+            SceneFlowManager.Instance.LoadGameOver();
+            return;
         }
-        else
+
+        // Guardar datos de la noche que termina
+        lastNightEntries = currentEntries;
+        lastNightStrikes = currentStrikes;
+        lastNightMaxStrikes = CurrentNight.maxStrikes;
+
+
+        currentNightIndex++;
+
+        Debug.Log("?? Después de incrementar | currentNightIndex = " + currentNightIndex);
+        Debug.Log("?? Total noches = " + nights.Count);
+
+        if (currentNightIndex >= nights.Count)
         {
-            //gameFlow.SetState(GameState.GameOver);
-
-            Debug.Log($"?? Fallaste la noche {CurrentNight.nightNumber}");
-            // Aquí luego puedes reiniciar juego o mostrar game over
+            SceneFlowManager.Instance.LoadWinDemo();
+            return;
         }
+
+        endNightPanel.Show(true);
     }
- 
+
+
+
+
 }
 
