@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3da91f5d7dffcac4ca0289bec352bad1, type: 3}
+  m_Name: Mask_Human2
+  m_EditorClassIdentifier: 
+  race: 0
+  difficultyLevel: 2
+  normalSprite: {fileID: 21300000, guid: 673bec2fa590e024b8a4baffd835c61c, type: 3}
+  uvSprite: {fileID: 0}
+  eyeType: 4
+  tremorIdle: 1
+  tremorInspect: 2
+  materialVisual: 3
+  detectorResult: 5
+  attachmentType: 2
+  designPattern: 1
+  clickSound: 0
+  clickReaction: 0
+  hammerReaction: 0
+  uvSymbol: 1
+  clanAnswer: Humano 3 habla 1
+  smellAnswer: Humano 3 habla 2
+  drinkAnswer: Humano 3 habla 3

@@ -8,6 +8,9 @@ public class MaskedCharacterData : ScriptableObject
     [Header("Truth (Hidden from Player)")]
     public CharacterRace race;
 
+    [Header("Difficulty")]
+    public MaskDifficultyLevel difficultyLevel;
+
     [Header("Visuals")]
     public Sprite normalSprite;
     public Sprite uvSprite;
