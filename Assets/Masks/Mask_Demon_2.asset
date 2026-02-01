@@ -16,7 +16,7 @@ MonoBehaviour:
   difficultyLevel: 0
   flashlightSprite: {fileID: 21300000, guid: 604688e94ff695944bb7eaba00c25a12, type: 3}
   normalSprite: {fileID: 21300000, guid: 877e68d38466de74e81adf33f51db2bc, type: 3}
-  uvSprite: {fileID: 0}
+  uvSprite: {fileID: 21300000, guid: f7957b5c4a8933b42a5e9d3cb48b06b0, type: 3}
   materialSprite: {fileID: 0}
   eyeType: 3
   tremorIdle: 2
