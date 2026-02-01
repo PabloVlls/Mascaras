@@ -15,7 +15,7 @@ MonoBehaviour:
   nightNumber: 1
   entriesGoal: 3
   maxStrikes: 3
-  nightDuration: 180
+  nightDuration: 20
   difficultyWeights:
   - difficulty: 0
     weight: 100
