@@ -19,6 +19,11 @@ public class MaskedCharacterData : ScriptableObject
     public Sprite uvSprite;
     public Sprite materialSprite;
 
+    //Este
+
+    [Header("Identification")]
+    public Sprite idSprite;
+
     [Header("Physical Traits")]
     public EyeType eyeType;
     public TremorIdleType tremorIdle;
