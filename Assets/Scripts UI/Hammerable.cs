@@ -3,7 +3,7 @@ using UnityEngine;
 public class Hammerable : MonoBehaviour
 {
     //public enum MaterialType { Carne, MascaraDura, Metal, Vidrio }
-    private NPCController npcController;
+    public NPCController npcController;
 
     /*[Header("Propiedades del Material")]
     public MaterialType tipoMaterial;
