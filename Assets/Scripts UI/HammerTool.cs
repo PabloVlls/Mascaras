@@ -14,7 +14,7 @@ public class HammerTool : MonoBehaviour
     public float golpeRotation = -45f; // Cu�ntos grados gira al golpear
     public float velocidadGolpe = 15f;
 
-    private bool isActive = false;
+    [SerializeField]private bool isActive = false;
     private Quaternion rotacionOriginal;
     private bool golpeando = false;
 
@@ -26,8 +26,13 @@ public class HammerTool : MonoBehaviour
 
     void Update()
     {
-        // Nota: El Input de activar (tecla 4) lo maneja el ToolsManager.
+        if(Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            ToggleTool(!isActive);
+        }
+        
 
+        // Nota: El Input de activar (tecla 4) lo maneja el ToolsManager.
         if (isActive)
         {
             MoveHammer();
@@ -73,8 +78,11 @@ public class HammerTool : MonoBehaviour
                 AudioClip sonidoFinal = (clipNPC != null) ? clipNPC : defaultHitSound;
                 if(sonidoFinal != null) audioSource.PlayOneShot(sonidoFinal);
 
+
                 //2. Feedback visual extra basado en la reacción del GDD
                 if(reaccion == "Desplazamiento") {/*Efecto de mover máscara*/}
+
+                Debug.Log("<color=yellow>¡GOLPE EXITOSO!</color> Material: " + superficie.npcController.characterData.clickSound);
             }
             else
             {
