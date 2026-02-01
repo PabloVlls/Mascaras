@@ -27,6 +27,11 @@ public class NPCController : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        GetHitSound();
+    }
+
     // =========================
     // SETUP
     // =========================

@@ -40,7 +40,7 @@ public class HammerTool : MonoBehaviour
             // CLIC IZQUIERDO = GOLPEAR
             if (Input.GetMouseButtonDown(0) && !golpeando)
             {
-                //StartCoroutine(AnimacionGolpe());
+                StartCoroutine(AnimacionGolpe());
                 DetectarImpacto();
             }
         }
@@ -50,7 +50,7 @@ public class HammerTool : MonoBehaviour
     {
         if (hammerUI != null)
         {
-            //hammerUI.position = Input.mousePosition + offsetUI;
+            hammerUI.position = Input.mousePosition + offsetUI;
         }
     }
 
@@ -77,6 +77,7 @@ public class HammerTool : MonoBehaviour
                 //1 Sonido:Prioriza el del NPC, sino el default
                 AudioClip sonidoFinal = (clipNPC != null) ? clipNPC : defaultHitSound;
                 if(sonidoFinal != null) audioSource.PlayOneShot(sonidoFinal);
+
 
                 //2. Feedback visual extra basado en la reacción del GDD
                 if(reaccion == "Desplazamiento") {/*Efecto de mover máscara*/}
