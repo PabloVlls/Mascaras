@@ -32,22 +32,30 @@ public class QueueManager : MonoBehaviour
         // 1. Elegir nivel según pesos de la noche
         MaskDifficultyLevel selectedLevel = GetRandomDifficultyLevel();
 
-        // 2. Filtrar personajes de ese nivel
+        // 2. Filtrar personajes disponibles de ese nivel
         List<MaskedCharacterData> filtered = availableCharacters.FindAll(
-    c => c.difficultyLevel == selectedLevel
+            c => c.difficultyLevel == selectedLevel
         );
 
-        // Seguridad por si no hay personajes de ese nivel
-        if (filtered.Count == 0)
+        MaskedCharacterData selected;
+
+        // 3. Elegir personaje
+        if (filtered.Count > 0)
+        {
+            selected = filtered[Random.Range(0, filtered.Count)];
+        }
+        else
         {
             Debug.LogWarning($"?? No hay personajes de nivel {selectedLevel}, usando random total");
-            return availableCharacters[Random.Range(0, availableCharacters.Count)];
-
+            selected = availableCharacters[Random.Range(0, availableCharacters.Count)];
         }
 
-        // 3. Elegir uno al azar de ese nivel
-        return filtered[Random.Range(0, filtered.Count)];
+        // 4. ELIMINAR del pool para que no se repita
+        availableCharacters.Remove(selected);
 
+        Debug.Log($"? Eliminado del pool: {selected.name} | Restantes: {availableCharacters.Count}");
+
+        return selected;
     }
 
     MaskDifficultyLevel GetRandomDifficultyLevel()

@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da91f5d7dffcac4ca0289bec352bad1, type: 3}
   m_Name: Mask_Human1
   m_EditorClassIdentifier: 
-  race: 1
+  race: 0
   difficultyLevel: 0
-  normalSprite: {fileID: 21300000, guid: f3f5eecf76d892f49b7ea5cd1d48945e, type: 3}
+  normalSprite: {fileID: 21300000, guid: f0ac787adfe032b4196c9e3d10aa13aa, type: 3}
   uvSprite: {fileID: 0}
+  materialSprite: {fileID: 0}
   eyeType: 0
   tremorIdle: 0
   tremorInspect: 0

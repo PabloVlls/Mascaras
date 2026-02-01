@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da91f5d7dffcac4ca0289bec352bad1, type: 3}
   m_Name: Mask_Demon_2
   m_EditorClassIdentifier: 
-  race: 0
-  difficultyLevel: 1
-  normalSprite: {fileID: 21300000, guid: bdea260a30e94254f919d89a982d6e0f, type: 3}
+  race: 1
+  difficultyLevel: 0
+  normalSprite: {fileID: 21300000, guid: c0c16694d8fce64439a827affe4def8b, type: 3}
   uvSprite: {fileID: 0}
+  materialSprite: {fileID: 0}
   eyeType: 3
   tremorIdle: 2
   tremorInspect: 1
