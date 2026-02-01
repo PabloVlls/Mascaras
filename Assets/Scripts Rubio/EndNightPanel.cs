@@ -14,6 +14,8 @@ public class EndNightPanel : MonoBehaviour
 
     bool lastNightWon = false;
 
+
+
     public void Show(bool success)
     {
         lastNightWon = success;
@@ -31,6 +33,7 @@ public class EndNightPanel : MonoBehaviour
         statsText.text =
     $"Entraron: {nightManager.lastNightEntries}\n" +
     $"Strikes: {nightManager.lastNightStrikes} / {nightManager.lastNightMaxStrikes}";
+
 
     }
 

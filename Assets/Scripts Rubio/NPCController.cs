@@ -11,6 +11,7 @@ public class NPCController : MonoBehaviour
     public SpriteRenderer mainRenderer;     // Sprite base
     public SpriteRenderer detailRenderer;   // Detalles (Lupa)
     public SpriteRenderer uvRenderer;       // Filtro UV
+    public SpriteRenderer flashlightRenderer;
 
     [Header("Audios")]
     public AudioClip sonidoMadera;
@@ -37,6 +38,11 @@ public class NPCController : MonoBehaviour
         uvRenderer.gameObject.SetActive(false);
         detailRenderer.gameObject.SetActive(false);
 
+        flashlightRenderer.sprite = characterData.flashlightSprite;
+        flashlightRenderer.gameObject.SetActive(false);
+
+
+
         /*// Asignar sprites SOLO UNA VEZ desde el ScriptableObject
         mainRenderer.sprite = characterData.normalSprite;
         uvRenderer.sprite = characterData.uvSprite;
@@ -48,6 +54,16 @@ public class NPCController : MonoBehaviour
         // Estados iniciales
         uvRenderer.gameObject.SetActive(false);
         detailRenderer.gameObject.SetActive(false);*/
+    }
+
+    public void ShowFlashlight()
+    {
+        flashlightRenderer.gameObject.SetActive(true);
+    }
+
+    public void HideFlashlight()
+    {
+        flashlightRenderer.gameObject.SetActive(false);
     }
 
     // =========================
