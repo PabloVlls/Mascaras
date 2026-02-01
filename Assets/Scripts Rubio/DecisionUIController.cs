@@ -8,12 +8,20 @@ public class DecisionUIController : MonoBehaviour
     public EvaluationManager evaluationManager;
     public NPCController currentNPC;
     public InspectionForm inspectionForm;
+    public NightManager nightManager;
+    public QueueManager queueManager;
+
 
     public void Approve()
     {
         evaluationManager.EvaluateDecision(true, currentNPC.characterData);
         inspectionForm.ResetForm();
         Debug.Log("?? APROBADO - siguiente NPC");
+
+        nightManager.RegisterDecision(true, currentNPC.characterData);
+        inspectionForm.ResetForm();
+        queueManager.NextNPC();
+
     }
 
     public void Deny()
@@ -21,6 +29,10 @@ public class DecisionUIController : MonoBehaviour
         evaluationManager.EvaluateDecision(false, currentNPC.characterData);
         inspectionForm.ResetForm();
         Debug.Log("?? DENEGADO - siguiente NPC");
+
+        nightManager.RegisterDecision(false, currentNPC.characterData);
+        inspectionForm.ResetForm();
+        queueManager.NextNPC();
     }
 }
 
