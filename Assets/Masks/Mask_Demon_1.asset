@@ -29,6 +29,6 @@ MonoBehaviour:
   clickReaction: 1
   hammerReaction: 2
   uvSymbol: 2
-  clanAnswer: Sizas soy del clan de los leones
-  smellAnswer: tussi y 4loko
-  drinkAnswer: 4lokooo
+  clanAnswer: "Del S\xE9ptimo C\xEDrculo, linaje de Asmodeus."
+  smellAnswer: Acabo de devorar un alma pecadora.
+  drinkAnswer: Sangre hirviendo, cosecha del 66.

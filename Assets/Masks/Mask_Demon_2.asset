@@ -29,6 +29,6 @@ MonoBehaviour:
   clickReaction: 1
   hammerReaction: 1
   uvSymbol: 3
-  clanAnswer: Demonio 2 real habla 1
-  smellAnswer: Demonio 2 real habla 2
-  drinkAnswer: Demonio 2 real habla 3
+  clanAnswer: "Del S\xE9ptimo C\xEDrculo, linaje de Asmodeus."
+  smellAnswer: "Es el perfume de la podredumbre. \xBFTe gusta"
+  drinkAnswer: Sangre hirviendo, cosecha del 66.

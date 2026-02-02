@@ -29,6 +29,6 @@ MonoBehaviour:
   clickReaction: 0
   hammerReaction: 0
   uvSymbol: 1
-  clanAnswer: Humano 3 habla 1
-  smellAnswer: Humano 3 habla 2
-  drinkAnswer: Humano 3 habla 3
+  clanAnswer: "Eh... \xBFdel clan de los... Diablos Rojos?"
+  smellAnswer: "\xBFYo? No, me he puesto desodorante... \xA1es azufre!"
+  drinkAnswer: "Una cerveza estar\xEDa bien... o agua."

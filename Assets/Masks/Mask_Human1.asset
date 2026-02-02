@@ -29,6 +29,6 @@ MonoBehaviour:
   clickReaction: 0
   hammerReaction: 0
   uvSymbol: 1
-  clanAnswer: Demonio 2 talking 1
-  smellAnswer: Demonio 2 talking 2
-  drinkAnswer: Demonio 2 talking 3
+  clanAnswer: Soy del Norte... digo, de las Tierras Bajas.
+  smellAnswer: "Es el perfume de la podredumbre. \xBFTe gusta?"
+  drinkAnswer: "Lo mismo que t\xFA... lava."

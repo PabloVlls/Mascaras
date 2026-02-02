@@ -28,18 +28,21 @@ public class DialogueManager : MonoBehaviour
 
     public void AskClan()
     {
+        questionPanel.SetActive(false);
         dialogueText.text = currentNPC.GetClanAnswer();
         dialoguePanel.SetActive(true);
     }
 
     public void AskSmell()
     {
+        questionPanel.SetActive(false);
         dialogueText.text = currentNPC.GetSmellAnswer();
         dialoguePanel.SetActive(true);
     }
 
     public void AskDrink()
     {
+        questionPanel.SetActive(false);
         dialogueText.text = currentNPC.GetDrinkAnswer();
         dialoguePanel.SetActive(true);
     }
